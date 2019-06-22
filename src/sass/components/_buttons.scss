@@ -1,0 +1,27 @@
+.btn {
+    height: 5rem;
+    width: 45%;
+    background-color: $color-3;
+    border: 1px solid white;
+    color: $color-4;
+    font-weight: 600;
+
+
+    &:hover {
+        background-color: $color-1;
+    }
+
+    &:active{
+        background-color: $color-4;
+        color: $color-1;
+    }
+
+    &_buy {
+
+
+    }
+
+    &_sell {
+
+    }
+}

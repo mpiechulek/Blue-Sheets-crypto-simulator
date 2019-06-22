@@ -1,0 +1,29 @@
+.form {
+    align-content: flex-start;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    @include respond(tab-port){
+        width: 100%;
+    }
+
+    &_input-wrapp {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        &_dubble {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        }
+    }
+
+    &_button-wrapp{
+        margin-top: 5.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+}

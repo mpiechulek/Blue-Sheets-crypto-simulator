@@ -1,0 +1,28 @@
+i {
+    position: relative;
+
+    @include respond(tab-port){
+        display: none;
+    }
+}
+
+img {
+    position: absolute;
+    height: 7rem;
+    width: 7rem;
+    fill: $color-4;
+    
+    @include respond(tab-port){
+        display: none;
+    }
+}
+
+.dollar-icon {
+    top:25%;
+    left: 4%;
+}
+
+.bitcoin-icon {
+    top:25%;
+    right: 4%;
+}

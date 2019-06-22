@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Jura:400,600,700|Share+Tech+Mono&display=swap" rel="stylesheet">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Blue-Sheet</title>
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="header_background">
+                <h2 class="header_background_date-time" id="date"></h2>
+                <h2 class="header_background_date-time" id="time"></h2>
+            </div>
+            <div class="header_wrapp">
+                <h1 class="header_wrapp_heading-1">Blue Sheets</h1>
+                <h2 class="header_wrapp_heading-2">The Bitcoin trading symulator</h2>
+                <img class="dollar-icon" src="./img/SVG/dollar.svg" alt="dollar">
+                <img class="bitcoin-icon" src="./img/SVG/bitcoin.svg" alt="bitcoin">
+            </div>
+        </header>
+
+        <!-- ============================================================== -->
+
+        <main class ="main">
+
+
+            <article class = "main_article">
+                <section class="main_article_section">
+                    <form class="form">
+                        <div class="form_input-wrapp">
+                            <label class = "label" for="bitcoin-price">The current price of Bitcoin [USD]</label>
+                            <output class ="output" id="bitcoin-price" type="text"  readolny><span class ="output_bitcoin-price"></span></output>
+                        </div>
+
+                        <div class="form_input-wrapp">
+                            <labe class="label" for="ammount">Ammount [BTC]</labe>
+                            <input type="tel" class="input" id="ammount">
+                        </div>
+
+                        <div class="form_button-wrapp">
+                            <button class="btn btn_buy" type="button" id ="btn-buy">BUY</button>
+                            <button class="btn btn_sell" type="button" id ="btn-sell">SELL</button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- ======================================================= -->
+
+                <section class="main_article_section">
+                    <form class="form">
+                        <div class="form_input-wrapp">
+                            <label class = "label" for="ballance-usd">Funds to invest [USD]</label>
+                            <output class = "output" id="ballance-usd" type="text"></output>
+
+                            <label class="label" for="btc-on-account">Bitcoins you own</label>
+                            <output class="output" id="money-to-invest" type="text" ></output>
+
+                            <label class="label" for="buy-valuet">Value of purchase in [USD]</label>
+                            <output type="text " class="output" id="buy-valuet"></output>
+
+                            <label class="label" for="present-btc-value">Present value in [USD]</label>
+                            <output type="text"  class="output" id="present-btc-value">xxx</output>
+                        </div>
+                    </form>
+                </section>
+            </article>
+        </main>
+
+        <footer class= "footer">
+            <div class ="footer_wrapper">
+                <h3 class="header_3">Blue Sheets</h3>
+                <p class="footer_paragraph">Designed and created by Michał Piechulek &copy; 2019</p>
+                <p class="footer_paragraph">Photo form https://www.pexels.com</p>
+                <p class="footer_paragraph">Icons form https://icomoon.io</p>
+            </div>
+        </footer>
+    </body>
+</html>

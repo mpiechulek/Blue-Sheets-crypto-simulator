@@ -1,0 +1,35 @@
+.main {
+    position: relative;
+
+    &_article{
+        display: flex;
+        justify-content: center;
+        margin: 4rem auto 4rem auto;
+        width: 80%;
+
+        @include respond(medium-desktop){
+                width: 85%;
+        }
+
+        @include respond(tab-land){
+                align-items: center;
+                flex-direction: column;
+        }
+
+        &_section {
+            align-content: center;
+            display:flex;
+            flex-direction: column;
+            padding: 2rem;
+            width: 50%;
+
+            @include respond(tab-land){
+                width: 70%;
+            }
+
+            @include respond(phone){
+                width: 85%;    
+            }
+        }
+    }
+}

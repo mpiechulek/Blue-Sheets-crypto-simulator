@@ -1,0 +1,44 @@
+@import "variables";
+
+body {
+    font-family: $font-family-3;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: $color-4;
+    line-height: 1.5;
+    word-spacing: .5rem;
+    letter-spacing: .5rem;
+}
+
+h1 {
+    font-family: 'Fredericka the Great';
+    font-size: $fontsize-header-1;
+    word-spacing: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.8rem;
+}
+
+h2 {
+    font-family: 'Fredericka the Great';
+    font-weight: 400;
+    font-size: $fontsize-header-2;
+    letter-spacing:1.2rem;
+
+}
+
+h3 {
+    font-family: 'Fredericka the Great';
+    font-size: $fontsize-header-3;
+    margin-bottom: $marginbottom-small ;
+
+}
+
+
+
+.paragraph {
+    margin-bottom: 1.5rem;
+
+    &_red {
+        color:red;
+    }
+}

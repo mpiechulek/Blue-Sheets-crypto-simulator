@@ -1,0 +1,40 @@
+
+.header{
+    position:relative;
+
+    &_background {
+        position:relative;
+        width:auto;
+        height:20vh;
+        background-image: url('../img/bit-coin.jpg');
+        background-color: $color-1;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include respond(phone){
+            display: none;
+        }
+
+        &_date-time{
+            display:block;
+            width:auto;
+            position: relative;
+            letter-spacing: 0.4rem;
+            color: $color-5;
+            font-size: 3rem;
+            font-family: $font-family-2;
+            font-weight: bold;
+            top: 25%;
+            left: 4%;
+        }
+    }
+
+    &_wrapp{
+        border-top: 1px dashed $color-4;
+        border-bottom: 1px dashed $color-4;
+        position: relative;
+        text-align: center;
+        padding-bottom: 1.7rem;
+    }
+}
