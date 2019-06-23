@@ -1,2 +1,4 @@
+BITCOIN TRADING SYMULATOR:
+  
 
-https://mpiechulek.github.io/Blue-Sheets-crypto-symulator/
+Link: https://mpiechulek.github.io/Blue-Sheets-crypto-symulator/
