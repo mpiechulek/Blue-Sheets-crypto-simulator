@@ -16,17 +16,26 @@
             display: none;
         }
 
-        &_date-time{
+        &_date, &_time{
             display:block;
             width:auto;
-            position: relative;
+            position: absolute;
             letter-spacing: 0.4rem;
             color: $color-5;
             font-size: 3rem;
             font-family: $font-family-2;
             font-weight: bold;
+        }
+
+        &_date {
             top: 25%;
             left: 4%;
+        }
+
+        &_time {
+            top: 25%;
+            right: 4%;
+            color: $color-5;
         }
     }
 

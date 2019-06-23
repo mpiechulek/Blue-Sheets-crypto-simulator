@@ -6,7 +6,6 @@
     color: $color-4;
     font-weight: 600;
 
-
     &:hover {
         background-color: $color-1;
     }
@@ -16,12 +15,11 @@
         color: $color-1;
     }
 
-    &_buy {
-
-
-    }
-
-    &_sell {
-
+    &_reset {
+        display: block;
+        position: relative;
+        margin: 3rem auto 0 auto;
+        width: 30%;
+        text-align: center;
     }
 }
