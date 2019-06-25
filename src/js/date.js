@@ -7,10 +7,10 @@ export const getDate = () => {
     document.getElementById('date').innerHTML = todayDate;
 };
 
-export const getTime = () => {
-    let today = new Date();
-    let timeOptions = { hour: '2-digit', minute: '2-digit', second: 'numeric' };
-    let time = today.toLocaleString('pl-PL', timeOptions);
-    document.getElementById('time').innerHTML = time;
-    setTimeout(getTime, 500);
-};
+// export const getTime = () => {
+//     let today = new Date();
+//     let timeOptions = { hour: '2-digit', minute: '2-digit', second: 'numeric' };
+//     let time = today.toLocaleString('pl-PL', timeOptions);
+//     document.getElementById('time').innerHTML = time;
+//     setTimeout(getTime, 500);
+// };

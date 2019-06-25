@@ -1,12 +1,15 @@
 //jshint esversion:6
 
-export const addToLocalStorage = () => {
-    localStorage.setItem('data', JSON.stringify(newTrade));
-    console.log(JSON.parse(retrievedObject));
+export const addToLocalStorage = (object) => {
+    let str = JSON.stringify(object);
+    localStorage.setItem('tradingData', JSON.stringify(str));
 };
 
-export const retrievedObject = localStorage.getItem('data');
+export const retrievedObject = () => {
+    let object = localStorage.getItem('tradingData');
+    return JSON.parse(object);
+};
 
 export const clearLocalStorage = () => {
-    localStorage.clear();
+    localStorage.removeItem('tradingData');
 };
