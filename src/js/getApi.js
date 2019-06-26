@@ -15,7 +15,10 @@ function refresh() {
         }
     };
 
-    req.open("GET", 'https://api.cryptonator.com/api/ticker/btc-usd', true);
+    req.open("GET", 'https://cors-anywhere.herokuapp.com/https://api.cryptonator.com/api/ticker/btc-usd', true);
+    // req.setRequestHeader('Access-Control-Allow-Origin', 'https://api.cryptonator.com');
+    // req.withCredentials = true;
+    // req.onreadystatechange = handler;
     req.send(null);
 }
 
