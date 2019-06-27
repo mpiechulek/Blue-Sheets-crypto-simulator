@@ -72,8 +72,8 @@ $breakpoint argument choice:
 
     //disabling hover efect
     @if $breakpoint == no-hover {
-        @media only screen and (min-width: 90em) {
+        @media only screen and (min-width: 75em) {
             @content
-        }; // 1440px
+        }; // 1200px
     }
 }

@@ -7,7 +7,8 @@ function refresh() {
         if (req.readyState == 4 && req.status == 200) {
             console.log('success!');
             let data = JSON.parse(req.response);
-            let price = Math.ceil(data.ticker.price);
+            let price = (data.ticker.price);
+            price = Math.round(price * 100) / 100;
             document.getElementById("bitcoin-price").innerHTML = price;
 
         } else {
@@ -16,16 +17,12 @@ function refresh() {
     };
 
     req.open("GET", 'https://cors-anywhere.herokuapp.com/https://api.cryptonator.com/api/ticker/btc-usd', true);
-    // req.setRequestHeader('Access-Control-Allow-Origin', 'https://api.cryptonator.com');
-    // req.withCredentials = true;
-    // req.onreadystatechange = handler;
     req.send(null);
 }
 
 export function initAPI() {
-
     refresh();
-    let int = self.setInterval(function() {
+    let int = self.setTimeout(function() {
         refresh();
     }, 30000);
 }

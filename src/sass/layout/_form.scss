@@ -11,7 +11,9 @@
     &_input-wrapp {
         display: flex;
         align-items: center;
+        align-content: flex-start;
         flex-direction: column;
+
 
         &_dubble {
         align-items: center;
@@ -25,5 +27,15 @@
         margin-top: 5.5rem;
         display: flex;
         justify-content: space-between;
+    }
+
+    &_warning {
+        text-align: center;
+        padding:3rem;
+        height: 5rem;
+
+        @include respond(phone){
+            margin-bottom: 2rem;
+        }
     }
 }

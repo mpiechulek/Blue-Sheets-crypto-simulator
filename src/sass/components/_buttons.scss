@@ -6,8 +6,10 @@
     color: $color-4;
     font-weight: 600;
 
-    &:hover {
-        background-color: $color-1;
+    @include respond(no-hover){
+        &:hover {
+            background-color: $color-1;
+        }
     }
 
     &:active{
