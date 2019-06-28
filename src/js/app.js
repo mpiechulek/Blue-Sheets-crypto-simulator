@@ -2,11 +2,12 @@
 import { initAPI } from './getAPI.js';
 import { clearLocalStorage } from './local-storage.js';
 import { insertData } from './dom-insert.js';
-import { dataInStorage, getBuy, getSell, getVariables, xxxx } from './calculate.js';
-import { getDate } from './date.js';
+import { dataInStorage, getBuy, getSell, getVariables, upDateAccount } from './calculate.js';
+// import { getDate } from './date.js';
 
 //=======================Id of input button and outel text======================
-let ammount = document.getElementById('ammount');
+
+let bctPrice = document.getElementById('bitcoin-price');
 let btcBallance = document.getElementById('btc-on-account');
 let accountBalance = document.getElementById('present-btc-value');
 let btnBuy = document.getElementById('btn-buy');
@@ -17,37 +18,45 @@ let input = document.getElementById('ammount');
 
 //=============================Event listinging=================================
 
-getDate();
-initAPI();
+//Loading data from local storahe or cerating new object
 dataInStorage();
 
-window.addEventListener('onchange', function() {
-    console.log("AAAAAAAAAAAAAAA");
-});
+(function() {
+    //geting bitcoin API
+    initAPI();
 
-btnBuy.addEventListener('click', () => {
-    getBuy(getVariables());
-    console.log('buy');
-});
+    //Uppdating acount balance
+    accountBalance.addEventListener('click', function() {
+        upDateAccount(getVariables());
+    });
 
-btnSell.addEventListener('click', () => {
-    getSell(getVariables());
-    console.log('sell');
-});
+    //Buying operation
+    btnBuy.addEventListener('click', () => {
+        getBuy(getVariables());
+    });
 
-btcBallance.addEventListener('click', () => {
-    ammount.value = btcBallance.value;
-});
+    //Selling operation
+    btnSell.addEventListener('click', () => {
+        getSell(getVariables());
+    });
 
-ammount.addEventListener('click', () => {
-    ammount.value = 0.000;
-});
+    //coppying bit coin ballanc to input form
+    btcBallance.addEventListener('click', () => {
+        input.value = btcBallance.value;
+    });
 
-btnReset.addEventListener('click', () => {
-    console.log('reset');
-    warnigSign.innerText = '';
-    input.value = '';
-    clearLocalStorage();
-    insertData(10000, 0, 10000);
-    accountBalance.style.color = '#ceddef';
-});
+    //reseting by clicking on the input form (btc ammount)
+    input.addEventListener('click', () => {
+        input.value = '';
+    });
+
+    //reseting the form and the localStorage
+    btnReset.addEventListener('click', () => {
+        console.log('reset');
+        warnigSign.innerText = '';
+        input.value = '';
+        clearLocalStorage();
+        insertData(10000, 0, 10000);
+        accountBalance.style.color = '#ceddef';
+    });
+})();

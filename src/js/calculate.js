@@ -1,5 +1,6 @@
 //jshint esversion:6
 import { insertData } from './dom-insert.js';
+import { initAPI } from './getAPI.js';
 import { addToLocalStorage, retrievedObject, clearLocalStorage } from './local-storage.js';
 
 //=================================Variables====================================
@@ -24,6 +25,8 @@ class Trade {
 
 //=================================If DATA in localstorahe======================
 
+
+//Checking if data ins local storage else creating new object
 export const dataInStorage = () => {
     let data, newTrade;
     data = retrievedObject();
@@ -60,6 +63,7 @@ const getAmmount = () => {
     }
 };
 
+//geting variables from form
 export const getVariables = () => {
     let actualPrice,
         balanceUSD,
@@ -79,6 +83,7 @@ export const getVariables = () => {
 
 // ============================Good or bad investmant===========================
 
+// If account balance greater than the start balance outpu color green else red
 const profitLoost = (number) => {
     if (number > 10000) {
         document.getElementById('present-btc-value').style.color = 'rgb(5, 237, 0)';
@@ -111,8 +116,6 @@ export const getBuy = (variable) => {
         //If the fonds on the acount aren't enough call a warning text
         if (variable.balanceUSD < buyPriceUSD) {
             document.getElementById('warning').textContent = warning_1;
-            console.log('warnign buying enable no funds');
-            return;
 
         } else {
             usd = variable.balanceUSD - buyPriceUSD;
@@ -129,6 +132,7 @@ export const getBuy = (variable) => {
             newTrade = new Trade(usd, btc, value);
             insertData(newTrade.balanceUSD, newTrade.btcAmmoun, newTrade.currentValue);
             addToLocalStorage(newTrade);
+
         }
     }
 };
@@ -153,7 +157,7 @@ export const getSell = (variable) => {
         if (ammount > variable.balanceBTC) {
             document.getElementById('warning').textContent = warning_3;
             console.log('Warnign buying enable not enough btc on account');
-            return;
+
 
         } else {
             usd = variable.balanceUSD + sellProfitUSD;
@@ -169,9 +173,25 @@ export const getSell = (variable) => {
             profitLoost(value);
 
             newTrade = new Trade(usd, btc, value);
-            console.log(newTrade);
             insertData(newTrade.balanceUSD, newTrade.btcAmmoun, newTrade.currentValue);
             addToLocalStorage(newTrade);
+
         }
     }
+};
+
+// ==================================Update account============================
+
+export const upDateAccount = (variable) => {
+    let update, object, newTrade;
+
+    object = retrievedObject();
+    update = (object.btcAmmoun * variable.actualPrice) + object.balanceUSD;
+    update = Math.round(update * 1000) / 1000;
+
+    insertData(object.balanceUSD, object.btcAmmoun, update);
+    profitLoost(update);
+
+    newTrade = new Trade(object.balanceUSD, object.btcAmmoun, update);
+    addToLocalStorage(newTrade);
 };

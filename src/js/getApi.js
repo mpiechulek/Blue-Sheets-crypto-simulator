@@ -2,12 +2,13 @@
 
 function refresh() {
     let req = new XMLHttpRequest();
+    let price, data;
 
     req.onreadystatechange = function() {
         if (req.readyState == 4 && req.status == 200) {
             console.log('success!');
-            let data = JSON.parse(req.response);
-            let price = (data.ticker.price);
+            data = JSON.parse(req.response);
+            price = (data.ticker.price);
             price = Math.round(price * 100) / 100;
             document.getElementById("bitcoin-price").innerHTML = price;
 
@@ -20,9 +21,10 @@ function refresh() {
     req.send(null);
 }
 
+//Checking for changes every 20 seconds
 export function initAPI() {
     refresh();
-    let int = self.setTimeout(function() {
+    self.setInterval(function() {
         refresh();
-    }, 30000);
+    }, 20000);
 }
