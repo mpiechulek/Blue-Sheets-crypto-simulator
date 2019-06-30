@@ -17,4 +17,4 @@ User’s gude:
 
 
 
-Link: https://mpiechulek.github.io/Blue-Sheets-crypto-symulator/
+Link: https://mpiechulek.github.io/Blue-Sheets-crypto-simulator/
