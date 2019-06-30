@@ -1,4 +1,4 @@
-BITCOIN TRADING SYMULATOR:
+BITCOIN TRADING SIMULATOR:
 
 Everyone has heard about Bitcoins. This simple simulator will check your investment skills.
 
