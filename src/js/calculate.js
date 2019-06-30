@@ -6,19 +6,19 @@ import { addToLocalStorage, retrievedObject, clearLocalStorage } from './local-s
 //=================================Variables====================================
 
 let warning_1 = "Your account dosen't have the required funds";
-let warning_2 = "Enter a positive ammount number of Bitcoin";
-let warning_3 = "Your account dosen't have the required ammount of Bitcoin";
-let warning_4 = "The minimal ammount of bitoin you can buy is 0.1";
-let ammount;
+let warning_2 = "Enter a positive amount number of Bitcoin";
+let warning_3 = "Your account dosen't have the required amount of Bitcoin";
+let warning_4 = "The minimal amount of bitoin you can buy is 0.1";
+let amount;
 let currentValue;
 let balanceUSD;
 
 //=================================Class========================================
 
 class Trade {
-    constructor(ballanceUSD, btcAmmoun, currentValue) {
+    constructor(ballanceUSD, btcAmoun, currentValue) {
         this.balanceUSD = ballanceUSD;
-        this.btcAmmoun = btcAmmoun;
+        this.btcAmoun = btcAmoun;
         this.currentValue = currentValue;
     }
 }
@@ -31,30 +31,29 @@ export const dataInStorage = () => {
     let data, newTrade;
     data = retrievedObject();
     if (data) {
-        insertData(data.balanceUSD, data.btcAmmoun, data.currentValue);
+        insertData(data.balanceUSD, data.btcAmoun, data.currentValue);
         profitLoost(data.currentValue);
 
     } else {
         insertData(10000, 0, 10000);
         newTrade = new Trade(10000, 0, 10000);
         addToLocalStorage(newTrade);
-
     }
 };
 
 // ===============================Get variables=================================
 
 
-//getting ammount value and checking if it's correct
-const getAmmount = () => {
-    ammount = Math.abs(document.getElementById('ammount').value.replace(",", "."));
-    if (isNaN(ammount) || ammount == '') {
+//getting amount value and checking if it's correct
+const getamount = () => {
+    amount = Math.abs(document.getElementById('amount').value.replace(",", "."));
+    if (isNaN(amount) || amount == '') {
         document.getElementById('warning').textContent = warning_2;
-        console.log("Warning: ammount value not correct");
+        console.log("Warning: amount value not correct");
         return false;
     } else {
         document.getElementById('warning').textContent = '';
-        if (ammount >= 0.1) {
+        if (amount >= 0.1) {
             return true;
 
         } else {
@@ -104,13 +103,13 @@ export const getBuy = (variable) => {
         newTrade,
         condition;
 
-    //checking if ammount value is correct
-    condition = getAmmount();
+    //checking if amount value is correct
+    condition = getamount();
 
     if (condition) {
 
         //Calculating the buy price
-        buyPriceUSD = (variable.actualPrice * ammount);
+        buyPriceUSD = (variable.actualPrice * amount);
         buyPriceUSD = Math.round(buyPriceUSD * 1000) / 1000;
 
         //If the fonds on the acount aren't enough call a warning text
@@ -121,7 +120,7 @@ export const getBuy = (variable) => {
             usd = variable.balanceUSD - buyPriceUSD;
             usd = Math.round(usd * 1000) / 1000;
 
-            btc = variable.balanceBTC + ammount;
+            btc = variable.balanceBTC + amount;
             btc = Math.round(btc * 1000) / 1000;
 
             value = (variable.actualPrice * btc) + usd;
@@ -130,7 +129,7 @@ export const getBuy = (variable) => {
             profitLoost(value);
 
             newTrade = new Trade(usd, btc, value);
-            insertData(newTrade.balanceUSD, newTrade.btcAmmoun, newTrade.currentValue);
+            insertData(newTrade.balanceUSD, newTrade.btcAmoun, newTrade.currentValue);
             addToLocalStorage(newTrade);
 
         }
@@ -147,14 +146,14 @@ export const getSell = (variable) => {
         newTrade,
         condition;
 
-    condition = getAmmount();
+    condition = getamount();
 
     if (condition) {
 
-        sellProfitUSD = variable.actualPrice * ammount;
+        sellProfitUSD = variable.actualPrice * amount;
         sellProfitUSD = Math.floor(sellProfitUSD * 1000) / 1000;
 
-        if (ammount > variable.balanceBTC) {
+        if (amount > variable.balanceBTC) {
             document.getElementById('warning').textContent = warning_3;
             console.log('Warnign buying enable not enough btc on account');
 
@@ -164,7 +163,7 @@ export const getSell = (variable) => {
             usd = Math.round(usd * 1000) / 1000;
             console.log(usd);
 
-            btc = variable.balanceBTC - ammount;
+            btc = variable.balanceBTC - amount;
             btc = Math.round(btc * 1000) / 1000;
 
             value = (variable.actualPrice * btc) + usd;
@@ -173,7 +172,7 @@ export const getSell = (variable) => {
             profitLoost(value);
 
             newTrade = new Trade(usd, btc, value);
-            insertData(newTrade.balanceUSD, newTrade.btcAmmoun, newTrade.currentValue);
+            insertData(newTrade.balanceUSD, newTrade.btcAmoun, newTrade.currentValue);
             addToLocalStorage(newTrade);
 
         }
@@ -186,12 +185,12 @@ export const upDateAccount = (variable) => {
     let update, object, newTrade;
 
     object = retrievedObject();
-    update = (object.btcAmmoun * variable.actualPrice) + object.balanceUSD;
+    update = (object.btcAmoun * variable.actualPrice) + object.balanceUSD;
     update = Math.round(update * 1000) / 1000;
 
-    insertData(object.balanceUSD, object.btcAmmoun, update);
+    insertData(object.balanceUSD, object.btcAmoun, update);
     profitLoost(update);
 
-    newTrade = new Trade(object.balanceUSD, object.btcAmmoun, update);
+    newTrade = new Trade(object.balanceUSD, object.btcAmoun, update);
     addToLocalStorage(newTrade);
 };

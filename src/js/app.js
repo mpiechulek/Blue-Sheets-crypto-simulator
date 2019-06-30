@@ -14,7 +14,7 @@ let btnBuy = document.getElementById('btn-buy');
 let btnSell = document.getElementById('btn-sell');
 let btnReset = document.getElementById('btn-reset');
 let warnigSign = document.getElementById('warning');
-let input = document.getElementById('ammount');
+let input = document.getElementById('amount');
 
 //=============================Event listinging=================================
 
